@@ -11,7 +11,7 @@ stages:
       buildContext: .
       tag: spring-k8s-test:v1
       pushRemote: true
-      registry: index.docker.io
+      registry: 127.0.0.1:34785
 - name: run
   steps:
   - applyYamlConfig:
