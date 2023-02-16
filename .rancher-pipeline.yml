@@ -12,5 +12,9 @@ stages:
       tag: spring-k8s-test:v1
       pushRemote: true
       registry: index.docker.io
+- name: run
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
 notification: {}
