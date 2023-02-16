@@ -8,10 +8,10 @@ stages:
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
-      buildContext: .
+      buildContext: docker build -f Dockerfile -t spring-k8s-test:v1 .
       tag: spring-k8s-test:v1
       pushRemote: true
-      registry: 127.0.0.1:34785
+      registry: index.docker.io
 - name: run
   steps:
   - applyYamlConfig:
