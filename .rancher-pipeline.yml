@@ -1,0 +1,16 @@
+stages:
+- name: package
+  steps:
+  - runScriptConfig:
+      image: maven
+      shellScript: mvn clean package
+- name: docker
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: spring-k8s-test:v1
+      pushRemote: true
+      registry: index.docker.io
+timeout: 60
+notification: {}
